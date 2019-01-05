@@ -11,7 +11,9 @@
     "dev": "parcel src/index.html"
   },
   "dependencies": {
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
     "eslint": "^5.12.0",
