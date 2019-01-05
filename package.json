@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier \"src/**/*.{js,jsx,css,html,json}\" --write",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,html,json}\"",
-    "lint": "eslint \"**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\"",
     "dev": "parcel src/index.html"
   },
   "dependencies": {
