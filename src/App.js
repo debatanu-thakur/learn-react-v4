@@ -3,9 +3,23 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import Pet from './Pet.jsx';
+import pf from 'petfinder-client';
+import Pet from './Pet';
+
+/**
+ * This is usually meant for the 
+ */
+const petfinder = pf({
+  key: process.env.API_KEY,
+  secret: process.env.API_SECRET
+})
 
 class App extends React.Component {
+  componentDidMount () {
+    const promise = petfinder.breed.list({animal: "dog"})
+    
+    promise.then(console.log, console.error);
+  }
   handleTitleClick() {
     alert("did you dare to click me");
   }
