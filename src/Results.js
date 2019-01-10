@@ -1,14 +1,13 @@
 /* global React ReactDOM */
 // The above is used to ommit throwing error on global React and ReactDOM object
 
-import React from 'react';
-import Pet from './Pet';
-import { petfinder } from './petfinder';
+import React from "react";
+import Pet from "./Pet";
+import { petfinder } from "./petfinder";
 
 /**
- * This is usually meant for the 
+ * This is usually meant for the
  */
-
 
 class Results extends React.Component {
   constructor(props) {
@@ -19,24 +18,25 @@ class Results extends React.Component {
     };
   }
 
-  componentDidMount () {
-    const promise = petfinder.pet.find({output: "full", location: "Seattle, WA"});
+  componentDidMount() {
+    const promise = petfinder.pet.find({
+      output: "full",
+      location: "Seattle, WA"
+    });
 
-    promise.then( data => {
+    promise.then(data => {
       let pets = [];
-      if ( data.petfinder.pets && data.petfinder.pets.pet ) {
-         if ( Array.isArray(data.petfinder.pets.pet)) {
-           pets = data.petfinder.pets.pet;
-         } else {
-           pets = [data.petfinder.pets.pet];
-         }
+      if (data.petfinder.pets && data.petfinder.pets.pet) {
+        if (Array.isArray(data.petfinder.pets.pet)) {
+          pets = data.petfinder.pets.pet;
+        } else {
+          pets = [data.petfinder.pets.pet];
+        }
       }
       this.setState({
         pets
       });
     });
-
-    
   }
   handleTitleClick() {
     alert("did you dare to click me");
@@ -44,10 +44,10 @@ class Results extends React.Component {
   render() {
     return (
       <div id="myId" className="search">
-        {this.state.pets.map( pet => {
+        {this.state.pets.map(pet => {
           let breed = "";
           if (Array.isArray(pet.breeds.breed)) {
-            breed = pet.breeds.breed.join(', ');
+            breed = pet.breeds.breed.join(", ");
           } else {
             breed = pet.breeds.breed;
           }
