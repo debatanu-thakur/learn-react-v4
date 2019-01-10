@@ -1,20 +1,11 @@
 import React from 'react';
-import pf from 'petfinder-client';
 import { navigate } from '@reach/router';
-import Pet from './Pet';
+import { petfinder } from './petfinder';
 
-
-const petfinder = pf({
-    key: process.env.API_KEY,
-    secret: process.env.API_SECRET
-});
 
 class Details extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            loading: true
-        }
+    state = {
+        loading: true
     }
 
     componentDidMount () {
@@ -40,13 +31,16 @@ class Details extends React.Component {
                 loading: false
             })
         }).catch(err => {
-            this.setState({error: err})
+            this.setState({error: err, loading: false})
             setTimeout(() => navigate('/'), 5000)
         });
 
         
     }
     render() {
+        if (this.state.loading) {
+            return <h1>Loading...</h1>
+        }
         const {name, breed, animal, location, description, media} = this.state;
         let photos = [];
         

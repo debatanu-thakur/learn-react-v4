@@ -2,16 +2,13 @@
 // The above is used to ommit throwing error on global React and ReactDOM object
 
 import React from 'react';
-import pf from 'petfinder-client';
 import Pet from './Pet';
+import { petfinder } from './petfinder';
 
 /**
  * This is usually meant for the 
  */
-const petfinder = pf({
-  key: process.env.API_KEY,
-  secret: process.env.API_SECRET
-})
+
 
 class Results extends React.Component {
   constructor(props) {
