@@ -8,7 +8,8 @@
     "format": "prettier \"src/**/*.{js,jsx,css,html,json}\" --write",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,html,json}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
-    "dev": "parcel src/index.html"
+    "dev": "parcel src/index.html",
+    "build": "parcel build --public-url ./dist/ src/index.html"
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
