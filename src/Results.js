@@ -4,26 +4,29 @@
 import React from "react";
 import Pet from "./Pet";
 import { petfinder } from "./petfinder";
+import SearchBox from "./SearchBox";
+import { SearchConsumer } from "./SearchContext";
 
 /**
  * This is usually meant for the
  */
 
 class Results extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      pets: []
-    };
+  state = {
+    pets: []
   }
-
   componentDidMount() {
+    console.log("i am here")
+    this.search();
+  }
+  
+  search = () => {
     const promise = petfinder.pet.find({
       output: "full",
-      location: "Seattle, WA"
+      location: this.props.searchParams.location,
+      animal: this.props.searchParams.animal,
+      breed: this.props.searchParams.breed,
     });
-
     promise.then(data => {
       let pets = [];
       if (data.petfinder.pets && data.petfinder.pets.pet) {
@@ -33,17 +36,16 @@ class Results extends React.Component {
           pets = [data.petfinder.pets.pet];
         }
       }
+      
       this.setState({
         pets
       });
     });
   }
-  handleTitleClick() {
-    alert("did you dare to click me");
-  }
   render() {
     return (
       <div id="myId" className="search">
+      <SearchBox search={this.search}/>
         {this.state.pets.map(pet => {
           let breed = "";
           if (Array.isArray(pet.breeds.breed)) {
@@ -69,4 +71,11 @@ class Results extends React.Component {
   }
 }
 
-export default Results;
+export default function ResultsData(props) {
+  return (
+    <SearchConsumer>
+      {context => <Results {...props} searchParams={context}/>
+      }
+    </SearchConsumer>
+  )
+};

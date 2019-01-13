@@ -83,6 +83,9 @@ getBreeds () {
         <header>
           <Link to={"/"}>You can adopt me here</Link>
         </header>
+        <nav className="">
+          <Link to={"/search-params"}>Find more pets</Link>
+        </nav>
         <SearchProvider
          value={this.state}>
         <Router>

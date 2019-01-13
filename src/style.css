@@ -8,6 +8,15 @@ body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+nav {
+  text-align: right;
+  width: 95%;
+  font-size: 2em;
+}
+
+nav a {
+  text-decoration: none;
+}
 
 .search,
 .details,
