@@ -43,11 +43,6 @@ class Details extends React.Component {
       return <h1>Loading...</h1>;
     }
     const { name, breed, animal, location, description, media } = this.state;
-    let photos = [];
-
-    if (media && media.photos && media.photos.photo) {
-      photos = media.photos.photo.filter(photo => photo["@size"] === "x");
-    }
     return (
       <div className="details">
       <Carousel media={media}/>
