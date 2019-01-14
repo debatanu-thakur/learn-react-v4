@@ -99,4 +99,4 @@ getBreeds () {
   }
 }
 
-render(<App />, document.getElementById("root"));
+export default App;

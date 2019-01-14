@@ -9,7 +9,8 @@
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,html,json}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "dev": "parcel src/index.html",
-    "build": "parcel build --public-url ./dist/ src/index.html"
+    "build": "parcel build --public-url ./dist/ src/index.html",
+    "start": "npm run build && babel-node server/index.js"
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
@@ -19,6 +20,7 @@
     "react-dom": "^16.7.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -30,6 +32,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.3",
+    "express": "^4.16.4",
     "parcel-bundler": "^1.11.0",
     "prettier": "^1.15.3"
   },
