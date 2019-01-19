@@ -5,7 +5,7 @@ class Carousel extends React.Component {
     photos: [],
     active: 0
   };
-  
+
   static getDerivedStateFromProps({ media }) {
     let photos = [];
     if (media && media.photos && media.photos.photo) {
@@ -14,11 +14,11 @@ class Carousel extends React.Component {
     return { photos };
   }
 
-  handleIndexClick = (event) => {
+  handleIndexClick = event => {
     this.setState({
-        active: parseInt(event.target.dataset.index, 10)
-    })
-  }
+      active: parseInt(event.target.dataset.index, 10)
+    });
+  };
   render() {
     const { photos, active } = this.state;
     return (

@@ -5,8 +5,7 @@ import React from "react";
 import Pet from "./Pet";
 import { petfinder } from "./petfinder";
 import SearchBox from "./SearchBox";
-import { SearchConsumer } from "./SearchContext";
-
+import { connect } from "react-redux";
 /**
  * This is usually meant for the
  */
@@ -14,18 +13,17 @@ import { SearchConsumer } from "./SearchContext";
 class Results extends React.Component {
   state = {
     pets: []
-  }
+  };
   componentDidMount() {
-    console.log("i am here")
     this.search();
   }
-  
+
   search = () => {
     const promise = petfinder.pet.find({
       output: "full",
-      location: this.props.searchParams.location,
-      animal: this.props.searchParams.animal,
-      breed: this.props.searchParams.breed,
+      location: this.props.location,
+      animal: this.props.animal,
+      breed: this.props.breed
     });
     promise.then(data => {
       let pets = [];
@@ -36,16 +34,16 @@ class Results extends React.Component {
           pets = [data.petfinder.pets.pet];
         }
       }
-      
+
       this.setState({
         pets
       });
     });
-  }
+  };
   render() {
     return (
       <div id="myId" className="search">
-      <SearchBox search={this.search}/>
+        <SearchBox search={this.search} />
         {this.state.pets.map(pet => {
           let breed = "";
           if (Array.isArray(pet.breeds.breed)) {
@@ -71,11 +69,10 @@ class Results extends React.Component {
   }
 }
 
-export default function ResultsData(props) {
-  return (
-    <SearchConsumer>
-      {context => <Results {...props} searchParams={context}/>
-      }
-    </SearchConsumer>
-  )
-};
+const mapStateToProps = ({ location, animal, breed }) => ({
+  location,
+  animal,
+  breed
+});
+
+export default connect(mapStateToProps)(Results);
