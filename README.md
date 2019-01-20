@@ -11,6 +11,16 @@ This is a seed application for react v16. This page uses the API from  [petfinde
 3. Jest for testing
 4. SSR using nodejs and express
 
+# Pre-requisites
+1. Please have nodejs installed in your system
+
+# How to run?
+1. Clone the repository first
+ 2. ```
+    $ git clone git@github.com:debatanu-thakur/learn-react-v4.git && cd learn-react-v4
+    ```
+ 3. `npm start` to run the application, now you can access it at http://localhost:3000
+
 License
 ----
 
