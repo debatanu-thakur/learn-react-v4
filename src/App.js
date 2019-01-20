@@ -6,8 +6,7 @@ import { Router, Link } from "@reach/router";
 import Results from "./Results";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
-import { Provider } from "react-redux";
-import store from "./store";
+
 
 class App extends React.Component {
   render() {
@@ -19,13 +18,12 @@ class App extends React.Component {
         <nav className="">
           <Link to={"/search-params"}>Find more pets</Link>
         </nav>
-        <Provider store={store}>
+        
           <Router>
             <Results path="/" />
             <Details path="details/:id/" />
             <SearchParams path="search-params" />
           </Router>
-        </Provider>
       </div>
     );
   }
