@@ -12,6 +12,7 @@
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "dev": "parcel src/index.html",
     "build": "parcel build --public-url ./dist/ src/index.html",
+    "build:all": "npm i && npm run build && babel index.js -o server.js",
     "start": "npm run build && babel-node index.js"
   },
   "dependencies": {
