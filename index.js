@@ -1,5 +1,5 @@
 import express from "express";
-import React from "React";
+import React from "react";
 import { renderToNodeStream } from "react-dom/server";
 import { ServerLocation } from "@reach/router";
 import fs from "fs";
