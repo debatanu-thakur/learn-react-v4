@@ -11,7 +11,7 @@ const html = fs.readFileSync("dist/index.html").toString();
 const parts = html.split("Not Rendered");
 
 const app = express();
-
+app.disable('x-powered-by');
 app.use("/dist", express.static("dist"));
 app.use((req, res) => {
   res.write(parts[0]);
