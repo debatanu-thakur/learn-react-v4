@@ -10,3 +10,8 @@ This is a seed application for react v16. This page uses the API from  [petfinde
 2. Redux
 3. Jest for testing
 4. SSR using nodejs and express
+
+License
+----
+
+MIT
