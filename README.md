@@ -17,7 +17,7 @@ This is a seed application for react v16. This page uses the API from  [petfinde
 # How to run?
 1. Clone the repository first
  2. ```
-    $ git clone git@github.com:debatanu-thakur/learn-react-v4.git && cd learn-react-v4
+    $ git clone git@github.com:debatanu-thakur/learn-react-v4.git && cd seed-react-v4
     ```
  3. `npm start` to run the application, now you can access it at http://localhost:3000
 
