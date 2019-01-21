@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "is-node": "^1.0.2",
     "live-server": "^1.2.1",
     "petfinder-client": "0.0.3",
     "react": "^16.7.0",
