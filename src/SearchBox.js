@@ -1,5 +1,5 @@
 import React from "react";
-import { ANIMALS } from "petfinder-client";
+import { ANIMALS } from "./petfinder-client";
 import { connect } from "react-redux";
 import { getBreeds } from "./actionCreators/getBreeds";
 import { changeAnimal } from "./actionCreators/changeAnimal";
