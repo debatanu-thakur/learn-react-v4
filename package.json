@@ -13,6 +13,7 @@
     "dev": "parcel src/index.html",
     "build": "parcel build --public-url ./dist/ src/index.html",
     "build:all": "npm i && npm run build && babel src/ -d views && babel index.js -o server.js",
+    "deploy": "npm run lint && npm run test && npm build:all",
     "start": "npm run build && babel-node index.js"
   },
   "dependencies": {
